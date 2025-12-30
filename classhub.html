@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClassHUB | Links oficiais</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'custom-cyan': '#0AA9C6',
+              'custom-magenta': '#CA2D7F',
+              'custom-yellow': '#ECC90C',
+            },
+          },
+        },
+      }
+    </script>
+
+    <style>
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+
+      .glass {
+        background: rgba(255,255,255,.75);
+        backdrop-filter: blur(10px);
+      }
+
+      .brand-line {
+        background: linear-gradient(90deg, #0AA9C6 0%, #CA2D7F 55%, #ECC90C 100%);
+      }
+    </style>
+
+    <!-- Anti-cache invisível -->
+    <script>
+      const PAGE_VERSION = "1.0.1";
+      const KEY = "classhub_links_version";
+
+      async function clearCaches() {
+        if (!('caches' in window)) return;
+        const keys = await caches.keys();
+        await Promise.all(keys.map(k => caches.delete(k)));
+      }
+
+      (async () => {
+        const saved = localStorage.getItem(KEY);
+        if (saved !== PAGE_VERSION) {
+          localStorage.setItem(KEY, PAGE_VERSION);
+          await clearCaches();
+          location.reload();
+        }
+      })();
+    </script>
+
+    <!-- Detecção de smartphone -->
+    <script>
+      function isMobileDevice() {
+        return (
+          window.innerWidth <= 768 ||
+          /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(navigator.userAgent)
+        );
+      }
+
+      if (isMobileDevice()) {
+        document.documentElement.classList.add('is-mobile');
+      }
+    </script>
+  </head>
+
+  <body class="bg-gray-100 text-gray-900">
+    <main class="min-h-screen px-4 py-6">
+      <section class="mx-auto max-w-5xl">
+        <div class="glass rounded-3xl shadow-xl border border-black/5 overflow-hidden">
+          <div class="brand-line h-1.5 w-full"></div>
+
+          <!-- HEADER -->
+          <header class="p-6 flex items-center justify-between gap-4">
+            <h1 class="text-3xl sm:text-4xl font-extrabold">
+              ClassHUB
+            </h1>
+
+            <!-- Ícones Free + PRO -->
+            <div class="flex items-center gap-2">
+              <img
+                src="./icon-1024.png"
+                alt="ClassHUB"
+                class="h-10 w-10 rounded-xl"
+              />
+              <img
+                src="./iconPRO-1024.png"
+                alt="ClassHUB PRO"
+                class="h-10 w-10 rounded-xl"
+              />
+            </div>
+          </header>
+
+          <!-- CONTEÚDO -->
+          <div class="px-6 pb-6">
+            <div class="rounded-3xl border border-black/5 bg-white/90 p-6">
+              <p class="text-base leading-relaxed">
+                O <strong>ClassHUB</strong> organiza sua rotina como professor,
+                reunindo ferramentas essenciais para acompanhar desempenho,
+                frequência, ocorrências, atividades, tarefas, placar interativo
+                e semáforo de desempenho.
+                <br /><br />
+                Tudo em uma interface única, rápida e adaptável, permitindo
+                decisões pedagógicas com mais clareza e menos perda de tempo.
+                Ideal para quem quer aula prática, dados confiáveis e registro
+                real do processo de aprendizagem.
+              </p>
+            </div>
+
+            <!-- LINKS -->
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- FREE -->
+              <a
+                href="https://play.google.com/store/apps/details?id=com.guibsonv.classhub&hl=pt_BR"
+                target="_blank"
+                class="rounded-3xl border border-black/5 bg-white/90 p-6 flex flex-col justify-between
+                       hover:shadow-lg transition"
+              >
+                <div>
+                  <h2 class="text-xl font-extrabold">ClassHUB</h2>
+                  <p class="opacity-70 text-sm">Android · Grátis</p>
+                </div>
+
+                <div class="mt-4 bg-custom-cyan text-white text-center font-extrabold py-3 rounded-2xl">
+                  Abrir na Play Store
+                </div>
+              </a>
+
+              <!-- PRO -->
+              <a
+                href="https://play.google.com/store/apps/details?id=com.guibsonv.classhubpro&hl=pt_BR"
+                target="_blank"
+                class="rounded-3xl border border-black/5 bg-white/90 p-6 flex flex-col justify-between
+                       hover:shadow-lg transition"
+              >
+                <div>
+                  <h2 class="text-xl font-extrabold">ClassHUB PRO</h2>
+                  <p class="opacity-70 text-sm">Android</p>
+                </div>
+
+                <div class="mt-4 bg-custom-magenta text-white text-center font-extrabold py-3 rounded-2xl">
+                  Abrir na Play Store
+                </div>
+              </a>
+
+              <!-- WINDOWS -->
+              <a
+                href="https://apps.microsoft.com/detail/9MVVR1K4HQLW?hl=pt-br&gl=BR"
+                target="_blank"
+                class="rounded-3xl border border-black/5 bg-white/90 p-6 flex flex-col justify-between
+                       hover:shadow-lg transition"
+              >
+                <div>
+                  <h2 class="text-xl font-extrabold">ClassHUB PRO</h2>
+                  <p class="opacity-70 text-sm">Windows · 15 dias grátis</p>
+                </div>
+
+                <div class="mt-4 bg-custom-yellow text-black text-center font-extrabold py-3 rounded-2xl">
+                  Abrir na Microsoft Store
+                </div>
+              </a>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="mt-6 rounded-3xl border border-black/5 bg-white/80 p-5">
+              <p class="text-xs opacity-70">
+                © 2025 ClassHUB. Desenvolvido por Guibson Valerio
+              </p>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
